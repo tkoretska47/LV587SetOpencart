@@ -23,7 +23,9 @@ namespace LV587SETOPENCART.Tests
         [OneTimeSetUp]
         public void BeforeAllMethods()
         {
-            driver = new ChromeDriver(@"C:\chromedriver_win32");
+            var options = new ChromeOptions();
+            options.AddArgument("--headless");
+            driver = new ChromeDriver("/usr/bin", options);
             searchCriteria = new SearchCriteriaComponent(driver);
             sortCategoryFilter = new SortCategoryFilter(driver);
 
@@ -34,7 +36,7 @@ namespace LV587SETOPENCART.Tests
         [SetUp]
         public void BeforeEachMethod()
         {
-            driver.Navigate().GoToUrl("http://40.76.251.6/index.php?route=product/search");
+            driver.Navigate().GoToUrl("http://104.211.63.230/index.php?route=product/search");
         }
 
         [Test(Description = "Verify searching particular item by category")]
@@ -42,6 +44,7 @@ namespace LV587SETOPENCART.Tests
         [AllureSeverity(SeverityLevel.normal)]
         [AllureTms("SETT-168")]
         [AllureOwner("Tania Koretska")]
+        [Category("Search")]
         public void SearchByCategory()
         {
             searchCriteria.AllCategoriesClick(DropdownCategories.Desktops);
@@ -59,6 +62,7 @@ namespace LV587SETOPENCART.Tests
         [AllureSeverity(SeverityLevel.normal)]
         [AllureTms("SETT-168")]
         [AllureOwner("Tania Koretska")]
+        [Category("Search")]
         public void SearchBySubcategory()
         {
             searchCriteria.AllCategoriesClick(DropdownCategories.Desktops);
@@ -78,6 +82,7 @@ namespace LV587SETOPENCART.Tests
         [AllureSeverity(SeverityLevel.normal)]
         [AllureTms("SETT-169")]
         [AllureOwner("Tania Koretska")]
+        [Category("Search")]
         public void ListView()
         {
             searchCriteria.SearchItem("ipod");
@@ -93,6 +98,7 @@ namespace LV587SETOPENCART.Tests
         [AllureSeverity(SeverityLevel.normal)]
         [AllureTms("SETT-169")]
         [AllureOwner("Tania Koretska")]
+        [Category("Search")]
         public void GridView()
         {
             searchCriteria.SearchItem("ipod");
@@ -108,6 +114,7 @@ namespace LV587SETOPENCART.Tests
         [AllureSeverity(SeverityLevel.normal)]
         [AllureTms("SETT-177")]
         [AllureOwner("Tania Koretska")]
+        [Category("Search")]
         public void SearchInProductDescription()
         {
             searchCriteria.AllCategoriesClick(DropdownCategories.Desktops);
@@ -128,6 +135,7 @@ namespace LV587SETOPENCART.Tests
         [AllureSeverity(SeverityLevel.normal)]
         [AllureTms("SETT-180")]
         [AllureOwner("Tania Koretska")]
+        [Category("Search")]
         public void VerifySortByFeatureNameAZ()
         {
             searchCriteria.SearchItem("mac");
@@ -146,6 +154,7 @@ namespace LV587SETOPENCART.Tests
         [AllureSeverity(SeverityLevel.normal)]
         [AllureTms("SETT-180")]
         [AllureOwner("Tania Koretska")]
+        [Category("Search")]
         public void VerifySortByFeatureNameZA()
         {
             searchCriteria.SearchItem("mac");
@@ -165,6 +174,7 @@ namespace LV587SETOPENCART.Tests
         [AllureSeverity(SeverityLevel.normal)]
         [AllureTms("SETT-181")]
         [AllureOwner("Tania Koretska")]
+        [Category("Search")]
         public void VerifyShow()
         {
             searchCriteria.SearchItem("ipod");
