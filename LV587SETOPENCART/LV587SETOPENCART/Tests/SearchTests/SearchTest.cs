@@ -174,7 +174,6 @@ namespace LV587SETOPENCART.Tests
         [AllureSeverity(SeverityLevel.normal)]
         [AllureTms("SETT-181")]
         [AllureOwner("Tania Koretska")]
-        [Category("Search")]
         public void VerifyShow()
         {
             searchCriteria.SearchItem("ipod");
